@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BroadcastReceiverBeacon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vxe-FZ-M8n">
+                                <rect key="frame" x="5" y="140" width="383" height="52.333333333333343"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Pd3-bH-5eW"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftt-qR-x4c">
+                                <rect key="frame" x="128" y="447.33333333333331" width="137" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Create Beacon"/>
+                                <connections>
+                                    <action selector="createBeacon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5GL-aA-1pD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rm-9u-MyL">
+                                <rect key="frame" x="10" y="212.33333333333334" width="383" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRK-Ri-9pN">
+                                <rect key="frame" x="113.66666666666669" y="262.33333333333331" width="166" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Calculate Distance"/>
+                                <connections>
+                                    <action selector="calculateDistance:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FsT-35-ZLt"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beacon Demo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Hc-hD-xSi">
+                                <rect key="frame" x="5" y="79" width="383" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="textColor" systemColor="systemPinkColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XWa-un-FYB">
+                                <rect key="frame" x="5" y="347.33333333333331" width="383" height="52.333333333333314"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="z5O-GI-Bto"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ftt-qR-x4c" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0nG-CK-73d"/>
+                            <constraint firstItem="Vxe-FZ-M8n" firstAttribute="top" secondItem="4Hc-hD-xSi" secondAttribute="bottom" constant="20" id="0vB-SC-YG7"/>
+                            <constraint firstItem="8Rm-9u-MyL" firstAttribute="leading" secondItem="Vxe-FZ-M8n" secondAttribute="leading" constant="5" id="CEC-z0-xjo"/>
+                            <constraint firstItem="8Rm-9u-MyL" firstAttribute="trailing" secondItem="Vxe-FZ-M8n" secondAttribute="trailing" constant="5" id="Do8-j6-zl4"/>
+                            <constraint firstItem="XWa-un-FYB" firstAttribute="leading" secondItem="Vxe-FZ-M8n" secondAttribute="leading" id="KPb-Gh-9ug"/>
+                            <constraint firstItem="CRK-Ri-9pN" firstAttribute="top" secondItem="8Rm-9u-MyL" secondAttribute="top" constant="50" id="NOR-w7-qiP"/>
+                            <constraint firstItem="XWa-un-FYB" firstAttribute="top" secondItem="CRK-Ri-9pN" secondAttribute="bottom" constant="50" id="UN9-5c-hQn"/>
+                            <constraint firstItem="CRK-Ri-9pN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ZVa-gW-iiJ"/>
+                            <constraint firstItem="4Hc-hD-xSi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="c1R-67-kEb"/>
+                            <constraint firstItem="8Rm-9u-MyL" firstAttribute="top" secondItem="Vxe-FZ-M8n" secondAttribute="bottom" constant="20" id="dbB-d6-TrA"/>
+                            <constraint firstItem="4Hc-hD-xSi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="dwv-JS-7mI"/>
+                            <constraint firstItem="XWa-un-FYB" firstAttribute="trailing" secondItem="Vxe-FZ-M8n" secondAttribute="trailing" id="gpY-Vl-NPS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Hc-hD-xSi" secondAttribute="trailing" constant="5" id="huv-5f-oDb"/>
+                            <constraint firstItem="ftt-qR-x4c" firstAttribute="top" secondItem="XWa-un-FYB" secondAttribute="top" constant="100" id="qqa-7w-1BN"/>
+                            <constraint firstItem="Vxe-FZ-M8n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="s93-HI-9gs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vxe-FZ-M8n" secondAttribute="trailing" constant="5" id="t5Y-5t-5Ho"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnCreateBeacon" destination="ftt-qR-x4c" id="Mbc-PE-SyN"/>
+                        <outlet property="lblDistance" destination="8Rm-9u-MyL" id="uMi-5H-ADg"/>
+                        <outlet property="txtBeaconIdToMonitor" destination="Vxe-FZ-M8n" id="tUf-Cg-3ql"/>
+                        <outlet property="txtBeaconUDID" destination="XWa-un-FYB" id="HSl-sp-OnL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="113" y="-2"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
