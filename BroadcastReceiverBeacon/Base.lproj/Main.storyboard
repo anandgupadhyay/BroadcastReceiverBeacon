@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -85,6 +86,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnCalculateDistance" destination="CRK-Ri-9pN" id="YkU-mj-NoX"/>
                         <outlet property="btnCreateBeacon" destination="ftt-qR-x4c" id="Mbc-PE-SyN"/>
                         <outlet property="lblDistance" destination="8Rm-9u-MyL" id="uMi-5H-ADg"/>
                         <outlet property="txtBeaconIdToMonitor" destination="Vxe-FZ-M8n" id="tUf-Cg-3ql"/>
