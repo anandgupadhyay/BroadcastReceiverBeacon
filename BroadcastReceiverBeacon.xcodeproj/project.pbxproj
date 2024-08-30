@@ -15,6 +15,15 @@
 		174FF04C2C7EE88900EE809C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 174FF04B2C7EE88900EE809C /* Base */; };
 		174FF0552C7EEDB000EE809C /* SimulatBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174FF0542C7EEDB000EE809C /* SimulatBeacon.swift */; };
 		174FF0572C7F242C00EE809C /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174FF0562C7F242C00EE809C /* ToastView.swift */; };
+		17D8CAE82C8092550053CDBE /* SampleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8CAE72C8092550053CDBE /* SampleView.m */; };
+		17D8CAFF2C80932D0053CDBE /* RNLBeacon+Distance.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8CAEF2C80932C0053CDBE /* RNLBeacon+Distance.m */; };
+		17D8CB002C80932D0053CDBE /* RNLBeaconTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8CAF02C80932C0053CDBE /* RNLBeaconTracker.m */; };
+		17D8CB012C80932D0053CDBE /* RNLBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8CAF12C80932C0053CDBE /* RNLBeacon.m */; };
+		17D8CB022C80932D0053CDBE /* RNLLocationTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8CAF22C80932C0053CDBE /* RNLLocationTracker.m */; };
+		17D8CB032C80932D0053CDBE /* RNLBeaconScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8CAF62C80932C0053CDBE /* RNLBeaconScanner.m */; };
+		17D8CB042C80932D0053CDBE /* RNLBeaconParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8CAFB2C80932D0053CDBE /* RNLBeaconParser.m */; };
+		17D8CB052C80932D0053CDBE /* RNLSignalMeasurement.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8CAFC2C80932D0053CDBE /* RNLSignalMeasurement.m */; };
+		17D8CB062C80932D0053CDBE /* RNLURLBeaconCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8CAFE2C80932D0053CDBE /* RNLURLBeaconCompressor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +37,25 @@
 		174FF04D2C7EE88900EE809C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		174FF0542C7EEDB000EE809C /* SimulatBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatBeacon.swift; sourceTree = "<group>"; };
 		174FF0562C7F242C00EE809C /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		17D8CAE52C8092550053CDBE /* BroadcastReceiverBeacon-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BroadcastReceiverBeacon-Bridging-Header.h"; sourceTree = "<group>"; };
+		17D8CAE62C8092550053CDBE /* SampleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleView.h; sourceTree = "<group>"; };
+		17D8CAE72C8092550053CDBE /* SampleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleView.m; sourceTree = "<group>"; };
+		17D8CAEF2C80932C0053CDBE /* RNLBeacon+Distance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RNLBeacon+Distance.m"; sourceTree = "<group>"; };
+		17D8CAF02C80932C0053CDBE /* RNLBeaconTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLBeaconTracker.m; sourceTree = "<group>"; };
+		17D8CAF12C80932C0053CDBE /* RNLBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLBeacon.m; sourceTree = "<group>"; };
+		17D8CAF22C80932C0053CDBE /* RNLLocationTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLLocationTracker.m; sourceTree = "<group>"; };
+		17D8CAF32C80932C0053CDBE /* RNLSignalMeasurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLSignalMeasurement.h; sourceTree = "<group>"; };
+		17D8CAF42C80932C0053CDBE /* RNLBeaconScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLBeaconScanner.h; sourceTree = "<group>"; };
+		17D8CAF52C80932C0053CDBE /* RNLBeaconParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLBeaconParser.h; sourceTree = "<group>"; };
+		17D8CAF62C80932C0053CDBE /* RNLBeaconScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLBeaconScanner.m; sourceTree = "<group>"; };
+		17D8CAF72C80932C0053CDBE /* RNLBeaconTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLBeaconTracker.h; sourceTree = "<group>"; };
+		17D8CAF82C80932C0053CDBE /* RNLBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLBeacon.h; sourceTree = "<group>"; };
+		17D8CAF92C80932D0053CDBE /* RNLLocationTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLLocationTracker.h; sourceTree = "<group>"; };
+		17D8CAFA2C80932D0053CDBE /* RNLBeacon+Distance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RNLBeacon+Distance.h"; sourceTree = "<group>"; };
+		17D8CAFB2C80932D0053CDBE /* RNLBeaconParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLBeaconParser.m; sourceTree = "<group>"; };
+		17D8CAFC2C80932D0053CDBE /* RNLSignalMeasurement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLSignalMeasurement.m; sourceTree = "<group>"; };
+		17D8CAFD2C80932D0053CDBE /* RNLURLBeaconCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLURLBeaconCompressor.h; sourceTree = "<group>"; };
+		17D8CAFE2C80932D0053CDBE /* RNLURLBeaconCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLURLBeaconCompressor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +88,16 @@
 		174FF03E2C7EE88800EE809C /* BroadcastReceiverBeacon */ = {
 			isa = PBXGroup;
 			children = (
-				174FF0532C7EEDA400EE809C /* BeaconEmittor */,
-				174FF03F2C7EE88800EE809C /* AppDelegate.swift */,
-				174FF0412C7EE88800EE809C /* SceneDelegate.swift */,
-				174FF0432C7EE88800EE809C /* ViewController.swift */,
-				174FF0452C7EE88800EE809C /* Main.storyboard */,
-				174FF0482C7EE88900EE809C /* Assets.xcassets */,
-				174FF04A2C7EE88900EE809C /* LaunchScreen.storyboard */,
+				17D8CAEE2C8092D10053CDBE /* AltBeaconFiles */,
 				174FF04D2C7EE88900EE809C /* Info.plist */,
+				17D8CAE52C8092550053CDBE /* BroadcastReceiverBeacon-Bridging-Header.h */,
+				17D8CAED2C8092920053CDBE /* Assets */,
+				17D8CAEC2C80928A0053CDBE /* View */,
+				17D8CAEB2C8092770053CDBE /* SampleOBJC */,
+				17D8CAEA2C80926E0053CDBE /* AppDelegate */,
+				17D8CAE92C8092660053CDBE /* ViewController */,
+				174FF0532C7EEDA400EE809C /* BeaconEmittor */,
+				174FF0412C7EE88800EE809C /* SceneDelegate.swift */,
 			);
 			path = BroadcastReceiverBeacon;
 			sourceTree = "<group>";
@@ -79,6 +109,71 @@
 				174FF0562C7F242C00EE809C /* ToastView.swift */,
 			);
 			path = BeaconEmittor;
+			sourceTree = "<group>";
+		};
+		17D8CAE92C8092660053CDBE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				174FF0432C7EE88800EE809C /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		17D8CAEA2C80926E0053CDBE /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				174FF03F2C7EE88800EE809C /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		17D8CAEB2C8092770053CDBE /* SampleOBJC */ = {
+			isa = PBXGroup;
+			children = (
+				17D8CAE62C8092550053CDBE /* SampleView.h */,
+				17D8CAE72C8092550053CDBE /* SampleView.m */,
+			);
+			path = SampleOBJC;
+			sourceTree = "<group>";
+		};
+		17D8CAEC2C80928A0053CDBE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				174FF0452C7EE88800EE809C /* Main.storyboard */,
+				174FF04A2C7EE88900EE809C /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		17D8CAED2C8092920053CDBE /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				174FF0482C7EE88900EE809C /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		17D8CAEE2C8092D10053CDBE /* AltBeaconFiles */ = {
+			isa = PBXGroup;
+			children = (
+				17D8CAF82C80932C0053CDBE /* RNLBeacon.h */,
+				17D8CAF12C80932C0053CDBE /* RNLBeacon.m */,
+				17D8CAFA2C80932D0053CDBE /* RNLBeacon+Distance.h */,
+				17D8CAEF2C80932C0053CDBE /* RNLBeacon+Distance.m */,
+				17D8CAF52C80932C0053CDBE /* RNLBeaconParser.h */,
+				17D8CAFB2C80932D0053CDBE /* RNLBeaconParser.m */,
+				17D8CAF42C80932C0053CDBE /* RNLBeaconScanner.h */,
+				17D8CAF62C80932C0053CDBE /* RNLBeaconScanner.m */,
+				17D8CAF72C80932C0053CDBE /* RNLBeaconTracker.h */,
+				17D8CAF02C80932C0053CDBE /* RNLBeaconTracker.m */,
+				17D8CAF92C80932D0053CDBE /* RNLLocationTracker.h */,
+				17D8CAF22C80932C0053CDBE /* RNLLocationTracker.m */,
+				17D8CAF32C80932C0053CDBE /* RNLSignalMeasurement.h */,
+				17D8CAFC2C80932D0053CDBE /* RNLSignalMeasurement.m */,
+				17D8CAFD2C80932D0053CDBE /* RNLURLBeaconCompressor.h */,
+				17D8CAFE2C80932D0053CDBE /* RNLURLBeaconCompressor.m */,
+			);
+			path = AltBeaconFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -113,6 +208,7 @@
 				TargetAttributes = {
 					174FF03B2C7EE88800EE809C = {
 						CreatedOnToolsVersion = 15.3;
+						LastSwiftMigration = 1530;
 					};
 				};
 			};
@@ -152,11 +248,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17D8CB022C80932D0053CDBE /* RNLLocationTracker.m in Sources */,
+				17D8CB032C80932D0053CDBE /* RNLBeaconScanner.m in Sources */,
+				17D8CB012C80932D0053CDBE /* RNLBeacon.m in Sources */,
 				174FF0442C7EE88800EE809C /* ViewController.swift in Sources */,
 				174FF0552C7EEDB000EE809C /* SimulatBeacon.swift in Sources */,
+				17D8CB062C80932D0053CDBE /* RNLURLBeaconCompressor.m in Sources */,
+				17D8CB052C80932D0053CDBE /* RNLSignalMeasurement.m in Sources */,
+				17D8CB042C80932D0053CDBE /* RNLBeaconParser.m in Sources */,
 				174FF0402C7EE88800EE809C /* AppDelegate.swift in Sources */,
 				174FF0422C7EE88800EE809C /* SceneDelegate.swift in Sources */,
+				17D8CAE82C8092550053CDBE /* SampleView.m in Sources */,
+				17D8CB002C80932D0053CDBE /* RNLBeaconTracker.m in Sources */,
 				174FF0572C7F242C00EE809C /* ToastView.swift in Sources */,
+				17D8CAFF2C80932D0053CDBE /* RNLBeacon+Distance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +411,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6369563V2L;
@@ -332,6 +438,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.anand.ios.bbssapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "BroadcastReceiverBeacon/BroadcastReceiverBeacon-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -342,6 +450,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6369563V2L;
@@ -368,6 +477,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.anand.ios.bbssapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "BroadcastReceiverBeacon/BroadcastReceiverBeacon-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

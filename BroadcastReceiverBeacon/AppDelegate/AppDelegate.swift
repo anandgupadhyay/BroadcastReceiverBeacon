@@ -10,17 +10,18 @@ import CoreLocation
 import CoreBluetooth
 
 enum BEACON_POWER: Int {
-    case BEACON_POWER_HIGH  = -56
+    case BEACON_POWER_HIGH  = -59//-56
     case BEACON_POWER_MEDIUM =   -66
     case BEACON_POWER_LOW   = -75
     case BEACON_POWER_ULTRA_LOW = 0
 }
-
-let localBeaconUUID = "5A4BABCD-174E-4BAC-A814-092E77F6B7E5"
-let localBeaconMajor: CLBeaconMajorValue = 123
-let localBeaconMinor: CLBeaconMinorValue = 456
+//ios to android - "04B4A848-70B9-4F72-9D86-3EB83A1AC004"
+let localBeaconUUID = "2f234454-cf6d-4a0f-adf2-f4911ba9ffa6"//"5A4BABCD-174E-4BAC-A814-092E77F6B7E5"//"5B190DF7-6EE1-4320-A166-DFD3B12F2D50"
+let localBeaconMajor: CLBeaconMajorValue = 1
+let localBeaconMinor: CLBeaconMinorValue = 2
 let localBeaconIdentifier = "Beacon007"
 
+//5A4BABCD-174E-4BAC-A814-092E77F6B7E5"
 let APPDELEGATE = (UIApplication.shared.delegate as! AppDelegate)
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-
         APPDELEGATE.initializeLocationManager()
         return true
     }
@@ -76,6 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         region.notifyEntryStateOnDisplay = true
        locationManager.startMonitoring(for: region)
        locationManager.startRangingBeacons(in: region)
+        locationManager.startRangingBeacons(satisfying: CLBeaconIdentityConstraint(uuid: uuid))
     }
     
     func calculateAccuracy(txPower: Int, rssi: Double) -> Double {
@@ -113,9 +114,9 @@ extension AppDelegate : CLLocationManagerDelegate{
     
     //Location Manager Delegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-        let newLat = Double(manager.location?.coordinate.latitude ?? 0.0)
-        let newLon = Double(manager.location?.coordinate.longitude ?? 0.0)
-        debugPrint("Location did lat:\(newLat) lon:\(newLon)")
+//        let newLat = Double(manager.location?.coordinate.latitude ?? 0.0)
+//        let newLon = Double(manager.location?.coordinate.longitude ?? 0.0)
+//        debugPrint("Location did lat:\(newLat) lon:\(newLon)")
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -163,15 +164,17 @@ extension AppDelegate : CLLocationManagerDelegate{
    }
    
    func locationManager(_ manager: CLLocationManager,didRange beacons: [CLBeacon],satisfying beaconConstraint: CLBeaconIdentityConstraint){
-       debugPrint("beacons \(beacons)")
-//        if beacons.count > 0 {
-//            let uuid = UUID(uuidString: localBeaconUUID)!
-//            let bcObj = beacons.filter{$0.uuid == uuid}.first
-//            if let beacon = bcObj {
+//       debugPrint("beacons \(beacons)")
+        if beacons.count > 0 {
+            let uuid = UUID(uuidString: localBeaconUUID)!
+            let bcObj = beacons.filter{$0.uuid == uuid}.first
+            if let beacon = bcObj {
+                    self.viewController.txtBeaconIdToMonitor.text = beacon.uuid.uuidString
+                    self.viewController.lblDistance.text = "\(String(describing: beacon.accuracy)) meteres | \(getProximity(prox: beacon.proximity))"
 //                self.lblDistance.text = "\(beacon.accuracy)meteres | \(getProximity(prox: beacon.proximity))"
 //                showToast(message: "\(beacon.accuracy)meteres | \(getProximity(prox: beacon.proximity))")
-//            }
-//        }
+            }
+        }
    }
 }
 extension AppDelegate : CBPeripheralManagerDelegate {
@@ -182,9 +185,10 @@ extension AppDelegate : CBPeripheralManagerDelegate {
             }
 
             let uuid = UUID(uuidString: localBeaconUUID)!
-            localBeacon  = CLBeaconRegion(uuid: uuid, major: localBeaconMajor, minor: localBeaconMinor, identifier: localBeaconIdentifier)
+            localBeacon  = CLBeaconRegion(uuid: uuid, major: localBeaconMajor, minor: 2, identifier: localBeaconIdentifier)
             beaconPeripheralData = localBeacon.peripheralData(withMeasuredPower: BEACON_POWER.BEACON_POWER_HIGH.rawValue as NSNumber)
-            peripheralManager = CBPeripheralManager(delegate: self, queue: nil, options: nil)
+            peripheralManager = CBPeripheralManager(delegate: self, queue: nil, options: ["serviceUuid":"1"])
+            peripheralManager.startAdvertising(beaconPeripheralData as? [String: Any])
         }
 
         func stopLocalBeacon(){
@@ -245,5 +249,31 @@ extension AppDelegate : CBPeripheralManagerDelegate {
  Beacon Notification Looping instead of Showing Once
  https://www.hackingwithswift.com/forums/swift/ibeacon-app-problem-with-notifications-looping-instead-of-showing-just-once/2158
  
+ //Beacon Layout
+ https://stackoverflow.com/questions/40095883/beacon-uuid-vs-beaconlayout
  
+ iBeacon
+ How to set iBeacon TX power byte
+ https://stackoverflow.com/questions/71054478/how-to-set-ibeacon-tx-power-byte
+ 
+ Generate UUID
+ https://developer.apple.com/documentation/corelocation/turning-an-ios-device-into-an-ibeacon-device
+ use following command to generate UUID
+ $ uuidgen
+ 
+ Detecting Android Beacon in iOS
+ https://stackoverflow.com/questions/34808415/scan-beacons-and-find-closest-one-in-swift
+ https://stackoverflow.com/questions/39695931/how-we-can-detect-the-android-device-as-beacon-in-ios-application
+ https://github.com/AltBeacon/ios-beacon-tools
+ 
+ 
+ Ready demos
+ https://github.com/davidgyoung/OverflowAreaBeaconRef
+ https://github.com/AltBeacon/ios-beacon-tools
+ https://cocoapods.org/pods/AltBeacon
+ https://github.com/Decemberlabs/AltBeacon?tab=readme-ov-file
+ https://altbeacon.org/examples/
+ https://github.com/Decemberlabs/AltBeacon
+ 
+ https://stackoverflow.com/questions/25027983/is-this-the-correct-layout-to-detect-ibeacons-with-altbeacons-android-beacon-li
  */
