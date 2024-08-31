@@ -15,6 +15,7 @@ enum BEACON_POWER: Int {
     case BEACON_POWER_LOW   = -75
     case BEACON_POWER_ULTRA_LOW = 0
 }
+
 //ios to android - "04B4A848-70B9-4F72-9D86-3EB83A1AC004"
 let localBeaconUUID = "2f234454-cf6d-4a0f-adf2-f4911ba9ffa6"//"5A4BABCD-174E-4BAC-A814-092E77F6B7E5"//"5B190DF7-6EE1-4320-A166-DFD3B12F2D50"
 let localBeaconMajor: CLBeaconMajorValue = 1
@@ -179,9 +180,9 @@ extension AppDelegate : CLLocationManagerDelegate{
 }
 extension AppDelegate : CBPeripheralManagerDelegate {
     
-        func initLocalBeacon() {
+        func startAdvertising() {
             if localBeacon != nil {
-                stopLocalBeacon()
+                stopAdvertising()
             }
 
             let uuid = UUID(uuidString: localBeaconUUID)!
@@ -191,11 +192,13 @@ extension AppDelegate : CBPeripheralManagerDelegate {
             peripheralManager.startAdvertising(beaconPeripheralData as? [String: Any])
         }
 
-        func stopLocalBeacon(){
-            peripheralManager.stopAdvertising()
-            peripheralManager = nil
-            beaconPeripheralData = nil
-            localBeacon = nil
+        func stopAdvertising(){
+            if peripheralManager != nil {
+                peripheralManager.stopAdvertising()
+                peripheralManager = nil
+                beaconPeripheralData = nil
+                localBeacon = nil
+            }
         }
 
         func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager){
@@ -215,7 +218,21 @@ extension AppDelegate : CBPeripheralManagerDelegate {
             self.viewController.showToast(message: "Started Adevertising :\(peripheral.isAdvertising)")
         }
     }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+    }
+    func applicationWillEnterForeground(_ application: UIApplication) {
+    }
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        self.viewController?.stopEverything()
+    }
+    func applicationWillResignActive(_ application: UIApplication) {
+    }
+    func applicationWillTerminate(_ application: UIApplication) {
+        self.viewController?.stopEverything()
+    }
 }
+
 
 /*
  Reference Links

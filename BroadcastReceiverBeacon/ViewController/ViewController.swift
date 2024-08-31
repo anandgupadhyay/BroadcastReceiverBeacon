@@ -19,13 +19,12 @@ class ViewController: UIViewController, UITextFieldDelegate,UNUserNotificationCe
     @IBOutlet weak var btnCalculateDistance: UIButton!
     @IBOutlet weak var tblBeacons: UITableView!
     
+    @IBOutlet weak var btnCancelAll: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         APPDELEGATE.viewController = self
-//        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-//            debugPrint("Monitoring Region:\(APPDELEGATE.locationManager.monitoredRegions)")
-//        })
-        
+        btnCancelAll.isEnabled = false
+
         
         //create the notificationCenter
         let center = UNUserNotificationCenter.current()
@@ -57,10 +56,10 @@ class ViewController: UIViewController, UITextFieldDelegate,UNUserNotificationCe
    
     @IBAction func calculateDistance(_ sender: Any){
         
-        APPDELEGATE.startScanning()
         btnCreateBeacon.isEnabled = false
         btnCalculateDistance.isEnabled = false
-        
+        btnCancelAll.isEnabled = true
+        btnCancelAll.setTitle("Stop", for:  .normal)
         //alt beacon
         scanner?.startScanning()
         recursiveUpdate()
@@ -121,13 +120,32 @@ class ViewController: UIViewController, UITextFieldDelegate,UNUserNotificationCe
     }
     
     @IBAction func createBeacon(_ sender: Any){
-        APPDELEGATE.initLocalBeacon()
+        APPDELEGATE.startAdvertising()
         btnCalculateDistance.isEnabled = false
         btnCreateBeacon.isEnabled = false
+        btnCancelAll.isEnabled = true
+        btnCancelAll.setTitle("Stop", for:  .normal)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         true
+    }
+    
+    func stopEverything(){
+        scanner?.stopScanning()
+        APPDELEGATE.stopAdvertising()
+        btnCalculateDistance.isEnabled = true
+        btnCreateBeacon.isEnabled = true
+        btnCancelAll.isEnabled = false
+        btnCancelAll.setTitle("Beacon Demo", for:  .normal)
+        self.txtBeaconUDID.text = ""
+        self.txtBeaconIdToMonitor.text = ""
+        self.lblDistance.text = ""
+        
+    }
+    
+    @IBAction func cancelAll(_ sender: Any) {
+        stopEverything()
     }
     
 }
