@@ -16,11 +16,15 @@ enum BEACON_POWER: Int {
     case BEACON_POWER_ULTRA_LOW = 0
 }
 
+let SampleBeaconUUID = "2f234454-cf6d-4a0f-adf2-f4911ba9ffa6"
+var SampleBeaconMajor: CLBeaconMajorValue = 1
+var SampleBeaconMinor: CLBeaconMinorValue = 2
+
 //ios to android - "04B4A848-70B9-4F72-9D86-3EB83A1AC004"
-let localBeaconUUID = "2f234454-cf6d-4a0f-adf2-f4911ba9ffa6"//"5A4BABCD-174E-4BAC-A814-092E77F6B7E5"//"5B190DF7-6EE1-4320-A166-DFD3B12F2D50"
-let localBeaconMajor: CLBeaconMajorValue = 1
-let localBeaconMinor: CLBeaconMinorValue = 2
-let localBeaconIdentifier = "Beacon007"
+var localBeaconUUID = SampleBeaconUUID//"5A4BABCD-174E-4BAC-A814-092E77F6B7E5"//"5B190DF7-6EE1-4320-A166-DFD3B12F2D50"
+var localBeaconMajor = SampleBeaconMajor
+var localBeaconMinor = SampleBeaconMinor
+var localBeaconIdentifier = "Beacon007"
 
 //5A4BABCD-174E-4BAC-A814-092E77F6B7E5"
 let APPDELEGATE = (UIApplication.shared.delegate as! AppDelegate)

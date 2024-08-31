@@ -18,8 +18,11 @@ class ViewController: UIViewController, UITextFieldDelegate,UNUserNotificationCe
     @IBOutlet weak var btnCreateBeacon: UIButton!
     @IBOutlet weak var btnCalculateDistance: UIButton!
     @IBOutlet weak var tblBeacons: UITableView!
-    
     @IBOutlet weak var btnCancelAll: UIButton!
+    
+    
+    @IBOutlet weak var txtMajor: UITextField!
+    @IBOutlet weak var txtMinor: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         APPDELEGATE.viewController = self
@@ -63,6 +66,12 @@ class ViewController: UIViewController, UITextFieldDelegate,UNUserNotificationCe
         //alt beacon
         scanner?.startScanning()
         recursiveUpdate()
+        txtBeaconUDID.resignFirstResponder()
+        txtBeaconIdToMonitor.resignFirstResponder()
+        txtMajor.text = ""
+        txtMinor.text = ""
+        txtBeaconUDID.text = ""
+        self.showToast(message: "Started Discovering")
     }
     
     func recursiveUpdate(){
@@ -120,6 +129,49 @@ class ViewController: UIViewController, UITextFieldDelegate,UNUserNotificationCe
     }
     
     @IBAction func createBeacon(_ sender: Any){
+        
+        //check for UUID
+        if let strUuid = txtBeaconUDID.text, !strUuid.isEmpty {
+            if let uuid = UUID(uuidString: localBeaconUUID){
+                localBeaconUUID = strUuid
+            }else{
+                self.showToast(message: "Invalid UUID")
+            }
+        }else{
+            localBeaconUUID = SampleBeaconUUID
+            txtBeaconUDID.text = localBeaconUUID
+            self.showToast(message: "Using Pre-Set UUID")
+        }
+        
+        //check for Major
+        if let strMajor = txtMajor.text, !strMajor.isEmpty {
+            if let major = CLBeaconMajorValue(strMajor){
+                localBeaconMajor = major
+            }else{
+                self.showToast(message: "Invalid Major")
+            }
+        }else{
+            localBeaconMajor = SampleBeaconMajor
+            txtMajor.text = "\(localBeaconMajor)"
+            self.showToast(message: "Using Pre-Set Major")
+        }
+        
+        //check for Minor
+        if let strMinor = txtMinor.text, !strMinor.isEmpty {
+            if let minor = CLBeaconMinorValue(strMinor){
+                localBeaconMinor = minor
+            }else{
+                self.showToast(message: "Invalid Minor")
+            }
+        }else{
+            localBeaconMinor = SampleBeaconMinor
+            txtMinor.text = "\(localBeaconMinor)"
+            self.showToast(message: "Using Pre-Set Minor")
+        }
+        
+        txtBeaconIdToMonitor.text = ""
+        lblDistance.text = ""
+        txtBeaconUDID.resignFirstResponder()
         APPDELEGATE.startAdvertising()
         btnCalculateDistance.isEnabled = false
         btnCreateBeacon.isEnabled = false
@@ -138,10 +190,12 @@ class ViewController: UIViewController, UITextFieldDelegate,UNUserNotificationCe
         btnCreateBeacon.isEnabled = true
         btnCancelAll.isEnabled = false
         btnCancelAll.setTitle("Beacon Demo", for:  .normal)
-        self.txtBeaconUDID.text = ""
-        self.txtBeaconIdToMonitor.text = ""
-        self.lblDistance.text = ""
-        
+        txtBeaconUDID.text = ""
+        txtBeaconIdToMonitor.text = ""
+        lblDistance.text = ""
+        txtMajor.text = ""
+        txtMinor.text = ""
+        txtBeaconIdToMonitor.resignFirstResponder()
     }
     
     @IBAction func cancelAll(_ sender: Any) {
