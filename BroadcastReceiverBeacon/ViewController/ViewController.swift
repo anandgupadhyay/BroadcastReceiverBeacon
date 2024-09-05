@@ -189,7 +189,7 @@ class ViewController: UIViewController, UITextFieldDelegate,UNUserNotificationCe
         btnCalculateDistance.isEnabled = true
         btnCreateBeacon.isEnabled = true
         btnCancelAll.isEnabled = false
-        btnCancelAll.setTitle("Beacon Demo", for:  .normal)
+        btnCancelAll.setTitle("Beacon Connection POC", for:  .normal)
         txtBeaconUDID.text = ""
         txtBeaconIdToMonitor.text = ""
         lblDistance.text = ""
@@ -198,10 +198,9 @@ class ViewController: UIViewController, UITextFieldDelegate,UNUserNotificationCe
         txtBeaconIdToMonitor.resignFirstResponder()
     }
     
-    @IBAction func cancelAll(_ sender: Any) {
+    @IBAction func cancelAll(_ sender: Any){
         stopEverything()
     }
-    
 }
 
 extension ViewController{
